@@ -1,0 +1,22 @@
+{
+  "name": "platformio",
+  "main": "./lib/platformio",
+  "version": "0.0.1",
+  "description": "Run build/upload platformio commands",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": [
+      "platformio:toggle",
+      "platformio:build",
+      "platformio:upload"
+    ]
+  },
+  "repository": "https://github.com/efatsi/platformio",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
