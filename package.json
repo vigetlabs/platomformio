@@ -9,7 +9,8 @@
     "atom-workspace": [
       "platformio:toggle",
       "platformio:build",
-      "platformio:upload"
+      "platformio:upload",
+      "platformio:console"
     ]
   },
   "repository": "https://github.com/efatsi/platformio",

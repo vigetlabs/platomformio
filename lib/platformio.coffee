@@ -20,8 +20,9 @@ module.exports = Platformio =
     # Register command that toggles this view
     @subscriptions.add atom.commands.add 'atom-workspace', "platformio:toggle": => @toggle()
 
-    @subscriptions.add atom.commands.add 'atom-workspace', "platformio:build": => @build()
+    @subscriptions.add atom.commands.add 'atom-workspace', "platformio:build":  => @build()
     @subscriptions.add atom.commands.add 'atom-workspace', 'platformio:upload': => @upload()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'platformio:console': => @console()
 
   deactivate: ->
     @modalPanel.destroy()
@@ -47,6 +48,14 @@ module.exports = Platformio =
   upload: ->
     console.log "Trying to upload your thing! Project Dir: " + @projectDir()
     proc = process.spawn("/usr/local/bin/platformio", ["run", "--target=upload"], {cwd: @projectDir()})
+    proc.stdout.on 'data', (data) ->
+      console.log("" + data)
+    proc.stderr.on 'data', (data) ->
+      console.log("" + data)
+
+  console: ->
+    console.log "Console logging your thing! Project Dir: " + @projectDir()
+    proc = process.spawn("/usr/local/bin/platformio", ["serialports", "monitor", "--baud=115200", "--echo"], {cwd: @projectDir()})
     proc.stdout.on 'data', (data) ->
       console.log("" + data)
     proc.stderr.on 'data', (data) ->

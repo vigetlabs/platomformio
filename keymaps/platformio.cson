@@ -10,4 +10,5 @@
 'atom-workspace':
   'cmd-shift-b': 'platformio:build'
   'cmd-shift-u': 'platformio:upload'
+  'cmd-shift-c': 'platformio:console'
   'ctrl-alt-t': 'platformio:toggle'
