@@ -39,6 +39,7 @@ module.exports = Platformio =
 
   build: ->
     console.log "Trying to build your thing! Project Dir: " + @projectDir()
+    @saveWorkspace()
     proc = process.spawn("/usr/local/bin/platformio", ["run"], {cwd: @projectDir()})
     proc.stdout.on 'data', (data) ->
       console.log("" + data)
@@ -47,6 +48,7 @@ module.exports = Platformio =
 
   upload: ->
     console.log "Trying to upload your thing! Project Dir: " + @projectDir()
+    @saveWorkspace()
     proc = process.spawn("/usr/local/bin/platformio", ["run", "--target=upload"], {cwd: @projectDir()})
     proc.stdout.on 'data', (data) ->
       console.log("" + data)
@@ -65,3 +67,7 @@ module.exports = Platformio =
     editor = atom.workspace.getActivePaneItem()
     file = editor.buffer.file
     file.getParent().getParent().path
+
+  saveWorkspace: ->
+    paneItem = atom.workspace.getActivePaneItem()
+    paneItem.save()
