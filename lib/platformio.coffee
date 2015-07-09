@@ -38,30 +38,18 @@ module.exports = Platformio =
       @modalPanel.show()
 
   build: ->
-    console.log "Trying to build your thing! Project Dir: " + @projectDir()
     @saveWorkspace()
     proc = process.spawn("/usr/local/bin/platformio", ["run"], {cwd: @projectDir()})
-    proc.stdout.on 'data', (data) ->
-      console.log("" + data)
-    proc.stderr.on 'data', (data) ->
-      console.log("" + data)
+    @logProcess(proc);
 
   upload: ->
-    console.log "Trying to upload your thing! Project Dir: " + @projectDir()
     @saveWorkspace()
     proc = process.spawn("/usr/local/bin/platformio", ["run", "--target=upload"], {cwd: @projectDir()})
-    proc.stdout.on 'data', (data) ->
-      console.log("" + data)
-    proc.stderr.on 'data', (data) ->
-      console.log("" + data)
+    @logProcess(proc);
 
   console: ->
-    console.log "Console logging your thing! Project Dir: " + @projectDir()
     proc = process.spawn("/usr/local/bin/platformio", ["serialports", "monitor", "--baud=115200", "--echo"], {cwd: @projectDir()})
-    proc.stdout.on 'data', (data) ->
-      console.log("" + data)
-    proc.stderr.on 'data', (data) ->
-      console.log("" + data)
+    @logProcess(proc);
 
   projectDir: ->
     editor = atom.workspace.getActivePaneItem()
@@ -71,3 +59,9 @@ module.exports = Platformio =
   saveWorkspace: ->
     paneItem = atom.workspace.getActivePaneItem()
     paneItem.save()
+
+  logProcess: (proc) ->
+    proc.stdout.on 'data', (data) ->
+      console.log("" + data)
+    proc.stderr.on 'data', (data) ->
+      console.log("" + data)
