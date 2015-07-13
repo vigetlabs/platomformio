@@ -1,13 +1,13 @@
 module.exports =
-class PlatformioView
+class PlatomformioView
   constructor: (serializedState) ->
     # Create root element
     @element = document.createElement('div')
-    @element.classList.add('platformio')
+    @element.classList.add('platomformio')
 
     # Create message element
     message = document.createElement('div')
-    message.textContent = "The Platformio package is Alive! It's ALIVE!"
+    message.textContent = "The Platomformio package is Alive! It's ALIVE!"
     message.classList.add('message')
     @element.appendChild(message)
 

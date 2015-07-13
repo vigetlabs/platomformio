@@ -1,33 +1,33 @@
 # TODO: - Save on build/upload
 #       - get pretty output in a closeable modal or something
 
-PlatformioView        = require './platformio-view'
+PlatomformioView        = require './platomformio-view'
 {CompositeDisposable} = require 'atom'
 process               = require 'child_process'
 
-module.exports = Platformio =
-  platformioView: null
+module.exports = Platomformio =
+  platomformioView: null
   modalPanel: null
   subscriptions: null
 
   activate: (state) ->
-    @platformioView = new PlatformioView(state.platformioViewState)
-    @modalPanel = atom.workspace.addModalPanel(item: @platformioView.getElement(), visible: false)
+    @platomformioView = new PlatomformioView(state.platomformioViewState)
+    @modalPanel = atom.workspace.addModalPanel(item: @platomformioView.getElement(), visible: false)
 
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', "platformio:toggle": => @toggle()
+    @subscriptions.add atom.commands.add 'atom-workspace', "platomformio:toggle": => @toggle()
 
-    @subscriptions.add atom.commands.add 'atom-workspace', "platformio:build":  => @build()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'platformio:upload': => @upload()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'platformio:console': => @console()
+    @subscriptions.add atom.commands.add 'atom-workspace', "platomformio:build":  => @build()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'platomformio:upload': => @upload()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'platomformio:console': => @console()
 
   deactivate: ->
     @modalPanel.destroy()
     @subscriptions.dispose()
-    @platformioView.destroy()
+    @platomformioView.destroy()
 
   toggle: ->
     console.log 'AsciiArt was toggled!'

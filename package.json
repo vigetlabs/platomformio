@@ -1,19 +1,19 @@
 {
-  "name": "platformio",
-  "main": "./lib/platformio",
+  "name": "platomformio",
+  "main": "./lib/platomformio",
   "version": "0.0.1",
-  "description": "Run build/upload platformio commands",
+  "description": "Run build/upload platomformio commands",
   "keywords": [
   ],
   "activationCommands": {
     "atom-workspace": [
-      "platformio:toggle",
-      "platformio:build",
-      "platformio:upload",
-      "platformio:console"
+      "platomformio:toggle",
+      "platomformio:build",
+      "platomformio:upload",
+      "platomformio:console"
     ]
   },
-  "repository": "https://github.com/efatsi/platformio",
+  "repository": "https://github.com/efatsi/platomformio",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

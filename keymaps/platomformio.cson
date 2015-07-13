@@ -8,7 +8,7 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
-  'cmd-shift-b': 'platformio:build'
-  'cmd-shift-u': 'platformio:upload'
-  'cmd-shift-c': 'platformio:console'
-  'ctrl-alt-t': 'platformio:toggle'
+  'cmd-shift-b': 'platomformio:build'
+  'cmd-shift-u': 'platomformio:upload'
+  'cmd-shift-c': 'platomformio:console'
+  'ctrl-alt-t': 'platomformio:toggle'
