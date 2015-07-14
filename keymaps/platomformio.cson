@@ -10,5 +10,3 @@
 'atom-workspace':
   'cmd-shift-b': 'platomformio:build'
   'cmd-shift-u': 'platomformio:upload'
-  'cmd-shift-c': 'platomformio:console'
-  'ctrl-alt-t': 'platomformio:toggle'

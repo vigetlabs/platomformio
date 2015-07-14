@@ -7,10 +7,8 @@
   ],
   "activationCommands": {
     "atom-workspace": [
-      "platomformio:toggle",
       "platomformio:build",
-      "platomformio:upload",
-      "platomformio:console"
+      "platomformio:upload"
     ]
   },
   "repository": "https://github.com/efatsi/platomformio",
