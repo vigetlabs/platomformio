@@ -1,11 +1,16 @@
 # platomformio
 
-Simple package to run platformio commands.
+Simple package to run PlatformIO commands.
+
+##Install
+
+- `git clone git@github.com:vigetlabs/platomformio.git`
+- `ln -s /full/path/to/platomformio ~/.atom/packages/platomformio`
 
 ##Setup
-- Install [platformio](http://platformio.org/#!/)
+- Install [PlatformIO](http://platformio.org/#!/)
   - this package expects the `platformio` command to be available at `usr/local/bin/platformio`
-- Create a platformio project (just a folder structure with `src/`, `lib/`, and a `platformio.ini` file)
+- Create a PlatformIO project (just a folder structure with `src/`, `lib/`, and a `platformio.ini` file)
   - `mkdir my-project; cd my-project`
   - `platformio init --board=uno` (answer no `N` to auto-uploading question)
   - `touch src/blink.ino`
