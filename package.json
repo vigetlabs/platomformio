@@ -8,7 +8,9 @@
   "activationCommands": {
     "atom-workspace": [
       "platomformio:build",
-      "platomformio:upload"
+      "platomformio:upload",
+      "platomformio:close",
+      "platomformio:kill"
     ]
   },
   "repository": "https://github.com/efatsi/platomformio",
@@ -17,5 +19,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "ansi-to-html": ">0.1.0",
+    "atom-space-pen-views": "^2.0.3"
   }
 }
