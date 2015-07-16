@@ -1,7 +1,7 @@
 {
   "name": "platomformio",
   "main": "./lib/platomformio",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Run build/upload platomformio commands",
   "keywords": [
   ],

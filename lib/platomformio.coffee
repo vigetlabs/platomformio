@@ -2,6 +2,15 @@ PlatomformioView      = require './platomformio-view'
 {CompositeDisposable} = require 'atom'
 
 module.exports = Platomformio =
+  config:
+    verboseBuild:
+      title: 'Show all build output (default is to only show if an error occurs)'
+      type: 'boolean'
+      default: false
+    verboseUpload:
+      title: 'Show all upload output (default is to only show if an error occurs)'
+      type: 'boolean'
+      default: true
   subscriptions: null
 
   activate: (state) ->
@@ -15,7 +24,6 @@ module.exports = Platomformio =
       'platomformio:close'        : => @close()
       'platomformio:kill-process' : => @kill()
 
-
   deactivate: ->
     @platomformioView.close()
 
@@ -26,13 +34,18 @@ module.exports = Platomformio =
     @saveWorkspace()
 
     @platomformioView.resetView("Building...")
+    if atom.config.get('platomformio.verboseBuild')
+      @platomformioView.panel.addClass("descriptive")
+
     @platomformioView.run("/usr/local/bin/platformio", ["run"])
 
   upload: ->
     @saveWorkspace()
 
     @platomformioView.resetView("Uploading...")
-    @platomformioView.panel.addClass("descriptive")
+    if atom.config.get('platomformio.verboseUpload')
+      @platomformioView.panel.addClass("descriptive")
+
     @platomformioView.run("/usr/local/bin/platformio", ["run", "--target=upload"])
 
   close: ->

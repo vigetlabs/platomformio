@@ -19,14 +19,20 @@ Simple package to run PlatformIO commands.
 
 Verify your code can compile with `cmd-shift-B`:
 
-![build](https://s3.amazonaws.com/f.cl.ly/items/2h1W2N3X2r3z3a3d3s2h/platomformio-build.gif)
+![build](http://i.imgur.com/6h1OSt7.gif)
 
 ##Upload
 
 Plug your Arduino in and `cmd-shift-U`:
 
-![upload](https://s3.amazonaws.com/f.cl.ly/items/073L21113g2s0i2K3L1H/platomformio-upload.gif)
+![upload](http://i.imgur.com/sYk6qAO.gif)
 
-##Notes
+##Kill Process
 
-Output from commands is piped into the web console. There are dreams to improve on this.
+You can kill a process anytime with `cmd-shift-k`
+
+##Settings
+
+- *Verbose Builds:* Default behavior is to only show build output if there is an error. Check this if you want to see all build output.
+
+- *Verbose Uploads:* Default behavior is to show all upload output. Uncheck this if you only want to see output if there is an error.
