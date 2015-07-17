@@ -33,3 +33,7 @@ You can kill a process anytime with `cmd-shift-k`
 - **Verbose Builds:** Default behavior is to only show build output if there is an error. Check this if you want to see all build output.
 
 - **Verbose Uploads:** Default behavior is to show all upload output. Uncheck this if you only want to see output if there is an error.
+
+###Acknowledgements
+
+*This package has [atom-script](https://github.com/rgbkrk/atom-script) to thank for it's good looks*
