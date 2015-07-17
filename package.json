@@ -1,10 +1,9 @@
 {
   "name": "platomformio",
   "main": "./lib/platomformio",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Run build/upload platomformio commands",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": [
       "platomformio:build",
