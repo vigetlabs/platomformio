@@ -13,7 +13,7 @@
       "platomformio:kill"
     ]
   },
-  "repository": "https://github.com/efatsi/platomformio",
+  "repository": "https://github.com/vigetlabs/platomformio",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
