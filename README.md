@@ -28,8 +28,8 @@ You can kill a process anytime with `cmd-shift-k`
 
 ##Settings
 
-- *Platformio path:* Defaults to `/usr/local/bin/platformio`. Can find your PlatformIO command path like so: `which platformio`.
+- **Platformio path:** Defaults to `/usr/local/bin/platformio`. Can find your PlatformIO command path like so: `which platformio`.
 
-- *Verbose Builds:* Default behavior is to only show build output if there is an error. Check this if you want to see all build output.
+- **Verbose Builds:** Default behavior is to only show build output if there is an error. Check this if you want to see all build output.
 
-- *Verbose Uploads:* Default behavior is to show all upload output. Uncheck this if you only want to see output if there is an error.
+- **Verbose Uploads:** Default behavior is to show all upload output. Uncheck this if you only want to see output if there is an error.
