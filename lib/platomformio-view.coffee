@@ -76,12 +76,17 @@ class PlatomformioViewView extends View
     })
 
     @bufferedProcess.onWillThrowError (nodeError) =>
+      @error()
       @bufferedProcess = null
       @output.append $$ ->
-        @h1 'Unable to run'
-        @pre command
-        @h2 'Is it in your PATH?'
-        @pre "PATH: #{process.env.PATH}"
+        if command == undefined
+          @h2 "Platformio path is undefined. Define in package settings."
+        else
+          @h1 "Unable to run command: \"#{command}\""
+          @pre "ERROR: #{nodeError.error.message}"
+          @pre "PATH: #{process.env.PATH}"
+
+      console.log(nodeError)
       nodeError.handle()
 
   kill: ->

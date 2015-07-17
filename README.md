@@ -2,15 +2,10 @@
 
 Simple package to run PlatformIO commands.
 
-##Install
-
-- `git clone git@github.com:vigetlabs/platomformio.git`
-- `ln -s /full/path/to/platomformio ~/.atom/packages/platomformio`
-
 ##Setup
 - Install [PlatformIO](http://platformio.org/#!/)
-  - this package expects the `platformio` command to be available at `usr/local/bin/platformio`
-- Create a PlatformIO project (just a folder structure with `src/`, `lib/`, and a `platformio.ini` file)
+  - by default, this package expects the `platformio` command to be available at `usr/local/bin/platformio`. You can update this in the package settings.
+- Create a PlatformIO project (just a folder structure with `src/`, `lib/`, and a `platformio.ini` file).
   - `mkdir my-project; cd my-project`
   - `platformio init --board=uno` (answer no `N` to auto-uploading question)
   - `touch src/blink.ino`
@@ -32,6 +27,8 @@ Plug your Arduino in and `cmd-shift-U`:
 You can kill a process anytime with `cmd-shift-k`
 
 ##Settings
+
+- *Platformio path:* Defaults to `/usr/local/bin/platformio`. Can find your PlatformIO command path like so: `which platformio`.
 
 - *Verbose Builds:* Default behavior is to only show build output if there is an error. Check this if you want to see all build output.
 

@@ -11,6 +11,11 @@ module.exports = Platomformio =
       title: 'Show all upload output (default is to only show if an error occurs)'
       type: 'boolean'
       default: true
+    platformioPath:
+      title: 'Path for platformio command'
+      description: 'This package depends on platformio, find path by typing `which platformio` into your terminal'
+      type: 'string'
+      default: '/usr/local/bin/platformio'
   subscriptions: null
 
   activate: (state) ->
@@ -37,7 +42,7 @@ module.exports = Platomformio =
     if atom.config.get('platomformio.verboseBuild')
       @platomformioView.panel.addClass("descriptive")
 
-    @platomformioView.run("/usr/local/bin/platformio", ["run"])
+    @platomformioView.run(atom.config.get('platomformio.platformioPath'), ["run"])
 
   upload: ->
     @saveWorkspace()
@@ -46,7 +51,7 @@ module.exports = Platomformio =
     if atom.config.get('platomformio.verboseUpload')
       @platomformioView.panel.addClass("descriptive")
 
-    @platomformioView.run("/usr/local/bin/platformio", ["run", "--target=upload"])
+    @platomformioView.run(atom.config.get('platomformio.platformioPath'), ["run", "--target=upload"])
 
   close: ->
     @platomformioView.close()
