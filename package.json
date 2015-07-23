@@ -2,12 +2,13 @@
   "name": "platomformio",
   "main": "./lib/platomformio",
   "version": "0.3.0",
-  "description": "Run build/upload platomformio commands",
+  "description": "Integration with PlatformIO: a cross-platform code builder and the missing library manager",
   "keywords": [],
   "activationCommands": {
     "atom-workspace": [
       "platomformio:build",
       "platomformio:upload",
+      "platomformio:clean",
       "platomformio:close",
       "platomformio:kill"
     ]
