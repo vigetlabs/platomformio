@@ -1,6 +1,7 @@
 # platomformio
 
-Simple package to run PlatformIO commands.
+Integration with [PlatformIO](http://platformio.org/) cross-platform code
+builder and the missing library manager (Ready for embedded development, Continuous integration, Arduino and MBED compatible).
 
 ##Setup
 - Install [PlatformIO](http://platformio.org/)

@@ -3,7 +3,7 @@
   "main": "./lib/platomformio",
   "version": "0.3.0",
   "description": "Integration with PlatformIO: a cross-platform code builder and the missing library manager",
-  "keywords": [],
+  "keywords": ["PlatformIO", "embedded", "cross", "arduino", "mbed", "cli"],
   "activationCommands": {
     "atom-workspace": [
       "platomformio:build",
