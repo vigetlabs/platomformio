@@ -1,40 +1,50 @@
 # platomformio
 
 Integration with [PlatformIO](http://platformio.org/) cross-platform code
-builder and the missing library manager (Ready for embedded development, Continuous integration, Arduino and MBED compatible).
+builder and the missing library manager (Ready for embedded development,
+Continuous integration, Arduino and MBED compatible).
 
-##Setup
+## Setup
 - Install [PlatformIO](http://platformio.org/)
-  - by default, this package expects the `platformio` command to be available at `usr/local/bin/platformio`. You can update this in the package settings.
-- Create a PlatformIO project (just a folder structure with `src/`, `lib/`, and a `platformio.ini` file).
+- Create a PlatformIO project using [platformio init](http://docs.platformio.org/en/latest/userguide/cmd_init.html) command:
   - `mkdir my-project; cd my-project`
   - `platformio init --board=uno` (answer no `N` to auto-uploading question)
-  - `touch src/blink.ino`
+  - copy your source files to `src` directory.
 
-##Build
+**Note!** If you have an error `Program "platformio" not found in PATH`,
+please specify "Environment PATH to run `platformio`" in settings.
+
+## Build
 
 Verify your code can compile with `cmd-shift-B`:
 
 ![build](http://i.imgur.com/6h1OSt7.gif)
 
-##Upload
+## Upload
 
 Plug your Arduino in and `cmd-shift-U`:
 
 ![upload](http://i.imgur.com/sYk6qAO.gif)
 
-##Kill Process
+## Kill Process
 
 You can kill a process anytime with `cmd-shift-k`
 
-##Settings
+## Settings
 
-- **Platformio path:** Defaults to `/usr/local/bin/platformio`. Can find your PlatformIO command path like so: `which platformio`.
+- **Environment PATH to run `platformio`:** Defaults to `PATH` from current
+  Atom session. `PATH` should contain directory where `platformio` is installed.
+  If you have an error `Program "platformio" not found in PATH`, then paste
+  here result of `echo $PATH` (Unix) / `echo %PATH%` (Windows) command by
+  typing into your terminal.
 
-- **Verbose Builds:** Default behavior is to only show build output if there is an error. Check this if you want to see all build output.
+- **Verbose Builds:** Default behavior is to only show build output if there is
+  an error. Check this if you want to see all build output.
 
-- **Verbose Uploads:** Default behavior is to show all upload output. Uncheck this if you only want to see output if there is an error.
+- **Verbose Uploads:** Default behavior is to show all upload output. Uncheck
+  this if you only want to see output if there is an error.
 
-###Acknowledgements
+### Acknowledgements
 
-*This package has [atom-script](https://github.com/rgbkrk/atom-script) to thank for it's good looks*
+*This package has [atom-script](https://github.com/rgbkrk/atom-script) to thank
+for it's good looks*
