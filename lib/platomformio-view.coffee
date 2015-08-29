@@ -55,6 +55,7 @@ class PlatomformioViewView extends View
     options =
       cwd: @getCwd()
       env: process.env
+    options.env.PATH = atom.config.get('platomformio.environPath')
 
     stdout = (output) => @display 'stdout', output
     stderr = (output) => @display 'stderr', output
@@ -79,12 +80,10 @@ class PlatomformioViewView extends View
       @error()
       @bufferedProcess = null
       @output.append $$ ->
-        if command == undefined
-          @h2 "Platformio path is undefined. Define in package settings."
-        else
-          @h1 "Unable to run command: \"#{command}\""
-          @pre "ERROR: #{nodeError.error.message}"
-          @pre "PATH: #{process.env.PATH}"
+        @h1 "Unable to run command: \"#{command}\""
+        @pre "ERROR: #{nodeError.error.message}"
+        @pre "You might need to update your package's PATH setting"
+        @pre "PATH: #{process.env.PATH}"
 
       console.log(nodeError)
       nodeError.handle()
