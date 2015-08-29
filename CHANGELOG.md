@@ -1,3 +1,7 @@
+## 0.5.0
+* Allowed to specify own environment `PATH` for `platformio` command.
+  By default `PATH` is set to value from the currrent Atom session.
+
 ## 0.2.0
 * Logging output in a much nicer format
 * Added settings for verbose outputs
