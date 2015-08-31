@@ -46,7 +46,10 @@ class PlatomformioViewView extends View
   close: ->
     # Stop any running process and dismiss window
     @kill()
-    @detach() if @hasParent()
+    if @hasParent()
+      grandParent = @panel.parent().parent()
+      @detach()
+      grandParent.remove()
 
   run: (command, args) ->
     startTime = new Date()
