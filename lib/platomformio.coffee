@@ -43,7 +43,7 @@ module.exports = Platomformio =
     if atom.config.get('platomformio.verboseBuild')
       @platomformioView.panel.addClass("descriptive")
 
-    @platomformioView.run("platformio", ["--force", "run"])
+    @platomformioView.run("platformio", ["-f", "-c", "atom", "run"])
 
   upload: ->
     @saveWorkspace()
@@ -52,7 +52,7 @@ module.exports = Platomformio =
     if atom.config.get('platomformio.verboseUpload')
       @platomformioView.panel.addClass("descriptive")
 
-    @platomformioView.run("platformio", ["--force", "run", "--target=upload"])
+    @platomformioView.run("platformio", ["-f", "-c", "atom", "run", "-t", "upload"])
 
   clean: ->
     @saveWorkspace()
@@ -61,7 +61,7 @@ module.exports = Platomformio =
     if atom.config.get('platomformio.verboseUpload')
       @platomformioView.panel.addClass("descriptive")
 
-    @platomformioView.run("platformio", ["--force", "run", "--target=clean"])
+    @platomformioView.run("platformio", ["-f", "-c", "atom", "run", "-t", "clean"])
 
   close: ->
     @platomformioView.close()

@@ -46,7 +46,10 @@ class PlatomformioViewView extends View
   close: ->
     # Stop any running process and dismiss window
     @kill()
-    @detach() if @hasParent()
+    if @hasParent()
+      grandParent = @panel.parent().parent()
+      @detach()
+      grandParent.remove()
 
   run: (command, args) ->
     startTime = new Date()
@@ -82,6 +85,7 @@ class PlatomformioViewView extends View
       @output.append $$ ->
         @h1 "Unable to run command: \"#{command}\""
         @pre "ERROR: #{nodeError.error.message}"
+        @pre "You might need to update your package's PATH setting"
         @pre "PATH: #{process.env.PATH}"
 
       console.log(nodeError)
