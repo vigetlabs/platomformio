@@ -1,3 +1,6 @@
+## 0.5.1
+* Updated PlatformIO commands according 2.3 release
+
 ## 0.5.0
 * Allowed to specify own environment `PATH` for `platformio` command.
   By default `PATH` is set to value from the currrent Atom session.
