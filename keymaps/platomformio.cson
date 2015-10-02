@@ -11,5 +11,5 @@
   'cmd-shift-b': 'platomformio:build'
   'cmd-shift-u': 'platomformio:upload'
   'cmd-shift-c': 'platomformio:clean'
-  'cmd-shift-w': 'platomformio:close'
+  'cmd-shift-e': 'platomformio:close'
   'cmd-shift-k': 'platomformio:kill-process'
