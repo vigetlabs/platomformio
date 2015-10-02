@@ -1,7 +1,7 @@
 {
   "name": "platomformio",
   "main": "./lib/platomformio",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Integration with PlatformIO: a cross-platform code builder and the missing library manager",
   "keywords": [
     "PlatformIO",
