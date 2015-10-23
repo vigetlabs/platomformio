@@ -121,7 +121,11 @@ class PlatomformioViewView extends View
   getCwd: ->
     editor = atom.workspace.getActivePaneItem()
     file = editor.buffer.file
-    file.getParent().getParent().path
+    path = file.getParent().getParent().path
+    if path.endsWith '/lib'
+      path.slice 0, -4 # Return parent directory
+    else
+      path
 
   success: ->
     @headerView.title.text 'Success'
