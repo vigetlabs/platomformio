@@ -44,6 +44,12 @@ You can kill a process anytime with `cmd-shift-k`
 - **Verbose Uploads:** Default behavior is to show all upload output. Uncheck
   this if you only want to see output if there is an error.
 
+### Contributors
+
+- [efatsi](https://github.com/efatsi)
+- [ivankravets](https://github.com/ivankravets)
+- [RomFouq](https://github.com/RomFouq)
+
 ### Acknowledgements
 
 *This package has [atom-script](https://github.com/rgbkrk/atom-script) to thank

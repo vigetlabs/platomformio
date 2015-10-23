@@ -1,3 +1,6 @@
+## 0.6.0
+* Can run PlatformIO commands from lib directory (@RomFouq)
+
 ## 0.5.1
 * Updated PlatformIO commands according 2.3 release
 
