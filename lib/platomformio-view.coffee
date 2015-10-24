@@ -3,9 +3,9 @@ HeaderView        = require './header-view'
 {View, $$}        = require 'atom-space-pen-views'
 AnsiFilter        = require 'ansi-to-html'
 
-# Runs a portion of a script through an interpreter and displays it line by line
+
 module.exports =
-class PlatomformioViewView extends View
+class PlatomformioView extends View
   @bufferedProcess: null
   @results: ""
 
