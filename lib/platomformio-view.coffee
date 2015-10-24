@@ -119,13 +119,16 @@ class PlatomformioViewView extends View
     @panel.scrollTop(@output.trueHeight())
 
   getCwd: ->
-    editor = atom.workspace.getActivePaneItem()
-    file = editor.buffer.file
-    path = file.getParent().getParent().path
-    if path.endsWith '/lib'
-      path.slice 0, -4 # Return parent directory
-    else
-      path
+    editor = atom.workspace.getActiveTextEditor()
+    return unless editor
+    dir = editor.buffer.file.getParent()
+
+    until dir.getFile('platformio.ini').existsSync()
+      # File system root has been reached: prevent infinite loop
+      return if lastDir?.getRealPathSync() is dir.getRealPathSync()
+      [lastDir, dir] = [dir, dir.getParent()]
+
+    dir.getRealPathSync()
 
   success: ->
     @headerView.title.text 'Success'
