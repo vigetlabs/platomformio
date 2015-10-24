@@ -1,3 +1,7 @@
+## 0.6.1
+* Minor tweak to determining project directory (@RomFouq)
+* Bug fix: Avoid Atom error if active panel isn't a text editor (@RomFouq)
+
 ## 0.6.0
 * Can run PlatformIO commands from lib directory (@RomFouq)
 
