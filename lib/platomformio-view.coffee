@@ -60,36 +60,41 @@ class PlatomformioView extends View
       env: process.env
     options.env.PATH = atom.config.get('platomformio.environPath')
 
-    stdout = (output) => @display 'stdout', output
-    stderr = (output) => @display 'stderr', output
-    exit = (returnCode) =>
-      @bufferedProcess = null
-
-      executionTime = (new Date().getTime() - startTime.getTime()) / 1000
-      @display 'stdout', '[Finished in '+executionTime.toString()+'s]'
-
-      if returnCode is 0
-        @success()
-      else
-        @error()
-      console.log "Exited with #{returnCode}"
-
-    # Run process
-    @bufferedProcess = new BufferedProcess({
-      command, args, options, stdout, stderr, exit
-    })
-
-    @bufferedProcess.onWillThrowError (nodeError) =>
-      @error()
-      @bufferedProcess = null
+    if options.cwd is undefined
       @output.append $$ ->
         @h1 "Unable to run command: \"#{command}\""
-        @pre "ERROR: #{nodeError.error.message}"
-        @pre "You might need to update your package's PATH setting"
-        @pre "PATH: #{process.env.PATH}"
+        @pre "Could not find a platformio.ini config file to identify the project"
+    else
+      stdout = (output) => @display 'stdout', output
+      stderr = (output) => @display 'stderr', output
+      exit = (returnCode) =>
+        @bufferedProcess = null
 
-      console.log(nodeError)
-      nodeError.handle()
+        executionTime = (new Date().getTime() - startTime.getTime()) / 1000
+        @display 'stdout', '[Finished in '+executionTime.toString()+'s]'
+
+        if returnCode is 0
+          @success()
+        else
+          @error()
+        console.log "Exited with #{returnCode}"
+
+      # Run process
+      @bufferedProcess = new BufferedProcess({
+        command, args, options, stdout, stderr, exit
+      })
+
+      @bufferedProcess.onWillThrowError (nodeError) =>
+        @error()
+        @bufferedProcess = null
+        @output.append $$ ->
+          @h1 "Unable to run command: \"#{command}\""
+          @pre "ERROR: #{nodeError.error.message}"
+          @pre "You might need to update your package's PATH setting"
+          @pre "PATH: #{process.env.PATH}"
+
+        console.log(nodeError)
+        nodeError.handle()
 
   kill: ->
     @headerView.title.text 'Killed'
