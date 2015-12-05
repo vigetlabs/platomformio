@@ -58,7 +58,7 @@ class PlatomformioView extends View
     options =
       cwd: @getCwd()
       env: process.env
-    options.env.PATH = atom.config.get('platomformio.environPath')
+    options.env.PATH = atom.config.get('platomformio.environPath') + ":" + process.env.PATH
 
     if options.cwd is undefined
       @output.append $$ ->
