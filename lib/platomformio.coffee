@@ -70,5 +70,4 @@ module.exports = Platomformio =
     @platomformioView.kill()
 
   saveWorkspace: ->
-    paneItem = atom.workspace.getActivePaneItem()
-    paneItem.save()
+    atom.workspace.getActiveTextEditor()?.save()

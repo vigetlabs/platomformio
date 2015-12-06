@@ -3,9 +3,9 @@ HeaderView        = require './header-view'
 {View, $$}        = require 'atom-space-pen-views'
 AnsiFilter        = require 'ansi-to-html'
 
-# Runs a portion of a script through an interpreter and displays it line by line
+
 module.exports =
-class PlatomformioViewView extends View
+class PlatomformioView extends View
   @bufferedProcess: null
   @results: ""
 
@@ -58,38 +58,43 @@ class PlatomformioViewView extends View
     options =
       cwd: @getCwd()
       env: process.env
-    options.env.PATH = atom.config.get('platomformio.environPath')
+    options.env.PATH = atom.config.get('platomformio.environPath') + ":" + process.env.PATH
 
-    stdout = (output) => @display 'stdout', output
-    stderr = (output) => @display 'stderr', output
-    exit = (returnCode) =>
-      @bufferedProcess = null
-
-      executionTime = (new Date().getTime() - startTime.getTime()) / 1000
-      @display 'stdout', '[Finished in '+executionTime.toString()+'s]'
-
-      if returnCode is 0
-        @success()
-      else
-        @error()
-      console.log "Exited with #{returnCode}"
-
-    # Run process
-    @bufferedProcess = new BufferedProcess({
-      command, args, options, stdout, stderr, exit
-    })
-
-    @bufferedProcess.onWillThrowError (nodeError) =>
-      @error()
-      @bufferedProcess = null
+    if options.cwd is undefined
       @output.append $$ ->
         @h1 "Unable to run command: \"#{command}\""
-        @pre "ERROR: #{nodeError.error.message}"
-        @pre "You might need to update your package's PATH setting"
-        @pre "PATH: #{process.env.PATH}"
+        @pre "Could not find a platformio.ini config file to identify the project"
+    else
+      stdout = (output) => @display 'stdout', output
+      stderr = (output) => @display 'stderr', output
+      exit = (returnCode) =>
+        @bufferedProcess = null
 
-      console.log(nodeError)
-      nodeError.handle()
+        executionTime = (new Date().getTime() - startTime.getTime()) / 1000
+        @display 'stdout', '[Finished in '+executionTime.toString()+'s]'
+
+        if returnCode is 0
+          @success()
+        else
+          @error()
+        console.log "Exited with #{returnCode}"
+
+      # Run process
+      @bufferedProcess = new BufferedProcess({
+        command, args, options, stdout, stderr, exit
+      })
+
+      @bufferedProcess.onWillThrowError (nodeError) =>
+        @error()
+        @bufferedProcess = null
+        @output.append $$ ->
+          @h1 "Unable to run command: \"#{command}\""
+          @pre "ERROR: #{nodeError.error.message}"
+          @pre "You might need to update your package's PATH setting"
+          @pre "PATH: #{process.env.PATH}"
+
+        console.log(nodeError)
+        nodeError.handle()
 
   kill: ->
     @headerView.title.text 'Killed'
@@ -119,9 +124,16 @@ class PlatomformioViewView extends View
     @panel.scrollTop(@output.trueHeight())
 
   getCwd: ->
-    editor = atom.workspace.getActivePaneItem()
-    file = editor.buffer.file
-    file.getParent().getParent().path
+    editor = atom.workspace.getActiveTextEditor()
+    return unless editor
+    dir = editor.buffer.file.getParent()
+
+    until dir.getFile('platformio.ini').existsSync()
+      # File system root has been reached: prevent infinite loop
+      return if lastDir?.getRealPathSync() is dir.getRealPathSync()
+      [lastDir, dir] = [dir, dir.getParent()]
+
+    dir.getRealPathSync()
 
   success: ->
     @headerView.title.text 'Success'
