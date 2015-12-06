@@ -58,7 +58,10 @@ class PlatomformioView extends View
     options =
       cwd: @getCwd()
       env: process.env
-    options.env.PATH = atom.config.get('platomformio.environPath') + ":" + process.env.PATH
+
+    # override PATH with the user value
+    if atom.config.get('platomformio.environPath')
+      options.env.PATH = atom.config.get('platomformio.environPath')
 
     if options.cwd is undefined
       @output.append $$ ->
@@ -91,7 +94,7 @@ class PlatomformioView extends View
           @h1 "Unable to run command: \"#{command}\""
           @pre "ERROR: #{nodeError.error.message}"
           @pre "You might need to update your package's PATH setting"
-          @pre "PATH: #{process.env.PATH}"
+          @pre "Current PATH: #{process.env.PATH}"
 
         console.log(nodeError)
         nodeError.handle()

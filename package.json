@@ -1,15 +1,18 @@
 {
   "name": "platomformio",
   "main": "./lib/platomformio",
-  "version": "0.6.2",
-  "description": "Integration with PlatformIO: a cross-platform code builder and the missing library manager",
+  "version": "0.6.3",
+  "description": "Integration with PlatformIO an open source ecosystem for IoT development. Cross-platform code builder and library manager. Continuous and IDE integration. Arduino and MBED compatible. Ready for Cloud compiling.",
   "keywords": [
     "PlatformIO",
+    "IoT",
     "embedded",
     "cross",
     "arduino",
     "mbed",
-    "cli"
+    "cli",
+    "builder",
+    "library manager"
   ],
   "activationCommands": {
     "atom-workspace": [

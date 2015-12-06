@@ -1,15 +1,20 @@
 # platomformio
 
-Integration with [PlatformIO](http://platformio.org/) cross-platform code
-builder and the missing library manager (Ready for embedded development,
-Continuous integration, Arduino and MBED compatible).
+Integration with [PlatformIO](http://platformio.org/) an open source ecosystem
+for IoT development. Cross-platform code builder and library manager.
+Continuous and IDE integration. Arduino and MBED compatible.
+Ready for Cloud compiling.
+
+*Atmel AVR & SAM, Espressif, Freescale Kinetis, Nordic nRF51, NXP LPC,
+Silicon Labs EFM32, ST STM32, TI MSP430 & Tiva, Teensy, Arduino, mbed, libOpenCM3, etc.*
 
 ## Setup
-- Install [PlatformIO](http://platformio.org/)
-- Create a PlatformIO project using [platformio init](http://docs.platformio.org/en/latest/userguide/cmd_init.html) command:
-  - `mkdir my-project; cd my-project`
-  - `platformio init --board=uno` (answer no `N` to auto-uploading question)
-  - copy your source files to `src` directory.
+1. Install [PlatformIO](http://platformio.org/)
+2. Create a PlatformIO project using [platformio init](http://docs.platformio.org/en/latest/userguide/cmd_init.html) command:
+  - Create empty directory for the new project (Unix `mkdir my-project; cd my-project`)
+  - `platformio init --board=TYPE`, where `TYPE` can be found in [Embedded Boards Explorer](http://platformio.org/#!/boards)
+3. Place your source files to `src` directory
+4. Open any file from `src` directory (**required step**) and then Build/Upload.
 
 **Note!** If you have an error `Program "platformio" not found in PATH`,
 please specify "Environment PATH to run `platformio`" in settings.
@@ -22,7 +27,7 @@ Verify your code can compile with `cmd-shift-B`:
 
 ## Upload
 
-Plug your Arduino in and `cmd-shift-U`:
+Plug your board in and `cmd-shift-U`:
 
 ![upload](http://i.imgur.com/sYk6qAO.gif)
 
