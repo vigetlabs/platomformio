@@ -13,7 +13,7 @@ module.exports = Platomformio =
       default: true
     environPath:
       title: 'Environment PATH to run `platformio`'
-      description: '`PATH` should contain directory where `platformio` is installed. Paste here the result of `echo $PATH` (Unix) / `echo %PATH%` (Windows) command by typing into your terminal'
+      description: 'Paste here the result of `echo $PATH` (Unix) / `echo %PATH%` (Windows) command by typing into your terminal'
       type: 'string'
       default: process.env.PATH
   subscriptions: null

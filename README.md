@@ -40,10 +40,8 @@ You can kill a process anytime with `cmd-shift-k`
 ## Settings
 
 - **Environment PATH to run `platformio`:** Defaults to `PATH` from current
-  Atom session. `PATH` should contain directory where `platformio` is installed.
-  If you have an error `Program "platformio" not found in PATH`, then paste
-  here result of `echo $PATH` (Unix) / `echo %PATH%` (Windows) command by
-  typing into your terminal.
+  Atom session. Paste here result of
+  `echo $PATH` (Unix) / `echo %PATH%` (Windows) command by typing into your terminal.
 
 - **Verbose Builds:** Default behavior is to only show build output if there is
   an error. Check this if you want to see all build output.
