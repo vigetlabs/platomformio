@@ -61,7 +61,7 @@ class PlatomformioView extends View
 
     # override PATH with the user value
     if atom.config.get('platomformio.environPath')
-      options.env.PATH = atom.config.get('platomformio.environPath')
+      options.env.PATH = atom.config.get('platomformio.environPath') + ":" + options.env.PATH
 
     if options.cwd is undefined
       @output.append $$ ->
