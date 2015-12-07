@@ -10,11 +10,13 @@ Silicon Labs EFM32, ST STM32, TI MSP430 & Tiva, Teensy, Arduino, mbed, libOpenCM
 
 ## Setup
 1. Install [PlatformIO](http://platformio.org/)
+2. Set the `Environment PATH` package setting with the result of `echo $PATH` (Unix) / `echo %PATH%` (Windows).
 2. Create a PlatformIO project using [platformio init](http://docs.platformio.org/en/latest/userguide/cmd_init.html) command:
   - Create empty directory for the new project (Unix `mkdir my-project; cd my-project`)
   - `platformio init --board=TYPE`, where `TYPE` can be found in [Embedded Boards Explorer](http://platformio.org/#!/boards)
 3. Place your source files to `src` directory
-4. Open any file from `src` directory (**required step**) and then Build/Upload.
+4. Open any file from `src` directory and then Build/Upload.
+
 
 **Note!** If you have an error `Program "platformio" not found in PATH`,
 please specify "Environment PATH to run `platformio`" in settings.
