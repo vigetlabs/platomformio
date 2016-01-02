@@ -26,6 +26,8 @@ module.exports = Platomformio =
       'core:cancel'               : => @close()
       'platomformio:build'        : => @build()
       'platomformio:upload'       : => @upload()
+      'platomformio:program'      : => @program()
+      'platomformio:uploadfs'     : => @uploadfs()
       'platomformio:clean'        : => @clean()
       'platomformio:close'        : => @close()
       'platomformio:kill-process' : => @kill()
@@ -53,6 +55,24 @@ module.exports = Platomformio =
       @platomformioView.panel.addClass("descriptive")
 
     @platomformioView.run("platformio", ["-f", "-c", "atom", "run", "-t", "upload"])
+
+  program: ->
+    @saveWorkspace()
+
+    @platomformioView.resetView("Uploading using Programmer...")
+    if atom.config.get('platomformio.verboseUpload')
+      @platomformioView.panel.addClass("descriptive")
+
+    @platomformioView.run("platformio", ["-f", "-c", "atom", "run", "-t", "program"])
+
+  uploadfs: ->
+    @saveWorkspace()
+
+    @platomformioView.resetView("Upload SPIFFS image...")
+    if atom.config.get('platomformio.verboseUpload')
+      @platomformioView.panel.addClass("descriptive")
+
+    @platomformioView.run("platformio", ["-f", "-c", "atom", "run", "-t", "uploadfs"])
 
   clean: ->
     @saveWorkspace()

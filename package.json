@@ -1,7 +1,7 @@
 {
   "name": "platomformio",
   "main": "./lib/platomformio",
-  "version": "0.6.5",
+  "version": "0.7.0",
   "description": "Integration with PlatformIO an open source ecosystem for IoT development. Cross-platform code builder and library manager. Continuous and IDE integration. Arduino and MBED compatible. Ready for Cloud compiling.",
   "keywords": [
     "PlatformIO",
@@ -12,12 +12,15 @@
     "mbed",
     "cli",
     "builder",
-    "library manager"
+    "library manager",
+    "esp8266"
   ],
   "activationCommands": {
     "atom-workspace": [
       "platomformio:build",
       "platomformio:upload",
+      "platomformio:program",
+      "platomformio:uploadfs",
       "platomformio:clean",
       "platomformio:close",
       "platomformio:kill"

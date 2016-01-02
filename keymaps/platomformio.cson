@@ -10,6 +10,8 @@
 'atom-workspace':
   'cmd-shift-b': 'platomformio:build'
   'cmd-shift-u': 'platomformio:upload'
+  'cmd-shift-p': 'platomformio:program'
+  'cmd-shift-f': 'platomformio:uploadfs'    
   'cmd-shift-c': 'platomformio:clean'
   'cmd-shift-e': 'platomformio:close'
   'cmd-shift-k': 'platomformio:kill-process'

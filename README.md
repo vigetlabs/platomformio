@@ -6,7 +6,8 @@ Continuous and IDE integration. Arduino and MBED compatible.
 Ready for Cloud compiling.
 
 *Atmel AVR & SAM, Espressif, Freescale Kinetis, Nordic nRF51, NXP LPC,
-Silicon Labs EFM32, ST STM32, TI MSP430 & Tiva, Teensy, Arduino, mbed, libOpenCM3, etc.*
+Silicon Labs EFM32, ST STM32, TI MSP430 & Tiva, Teensy, Arduino, mbed,
+libOpenCM3, ESP8266, etc.*
 
 ## Setup
 1. Install [PlatformIO](http://platformio.org/)
@@ -32,6 +33,19 @@ Verify your code can compile with `cmd-shift-B`:
 Plug your board in and `cmd-shift-U`:
 
 ![upload](http://i.imgur.com/sYk6qAO.gif)
+
+## Upload using Programmer
+
+Plug your board in and `cmd-shift-P`. Please make sure to read
+[Upload using Programmer for Atmel AVR](http://docs.platformio.org/en/latest/platforms/atmelavr.html#upload-using-programmer)
+first.
+
+## Upload SPIFFS firmware
+
+Plug your board in and `cmd-shift-F`. Please make sure to read
+[Uploading files to file system SPIFFS for ESP8266](http://docs.platformio.org/en/latest/platforms/espressif.html#uploading-files-to-file-system-spiffs)
+first.
+
 
 ## Kill Process
 

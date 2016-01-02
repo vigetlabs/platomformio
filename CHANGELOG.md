@@ -1,3 +1,8 @@
+## 0.7.0
+* Added new commands:
+  - `Uploading using Programmer` for Atmel AVR
+  - `Uploading SPIFFS image` for Espressif ESP8266
+
 ## 0.6.3
 * Improved handling of process.env.PATH and user's specified PATH
 * Updated README with detailed instructions how to use this package
