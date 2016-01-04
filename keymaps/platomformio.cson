@@ -8,10 +8,10 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
-  'cmd-shift-b': 'platomformio:build'
-  'cmd-shift-u': 'platomformio:upload'
-  'cmd-shift-p': 'platomformio:program'
-  'cmd-shift-f': 'platomformio:uploadfs'    
-  'cmd-shift-c': 'platomformio:clean'
-  'cmd-shift-e': 'platomformio:close'
-  'cmd-shift-k': 'platomformio:kill-process'
+  'shift-cmd-b':     'platomformio:build'
+  'shift-cmd-u':     'platomformio:upload'
+  'alt-shift-cmd-p': 'platomformio:program'
+  'alt-shift-cmd-f': 'platomformio:uploadfs'
+  'shift-cmd-c':     'platomformio:clean'
+  'shift-cmd-e':     'platomformio:close'
+  'shift-cmd-k':     'platomformio:kill-process'
